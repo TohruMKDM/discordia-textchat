@@ -1,6 +1,7 @@
 local function warning(client, object, id, event)
 	return client:warning('Uncached %s (%s) on %s', object, id, event)
 end
+
 local function getChannel(client, id)
 	local guild = client._channel_map[id]
 	if guild then
