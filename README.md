@@ -26,9 +26,20 @@ client:on('messageCreate', function(message)
             voiceChannel:send('working!')
         end
     end
+    if message.content == '!pin' then
+        -- channel type of 2 represents a voice channel
+        local canPin = message.channel.type ~= 2
+        if canPin then
+            message:pin()
+            message:reply('pinned!')
+        else
+            message:reply('You cannot pin messages in voice channels :(')
+        end
+    end
 end)
 ```
 
 # Note
 While these new text chats in voice channels are very similar to actual text channels, it is important to note that they are not 1:1.
-For example, they do not support pinned messages so the `getPinnedMessages` method is nil.
+For instance, these new text channels do not support pinned messages so the `getPinnedMessages` method has been omitted from the GuildVoiceChannel class.
+Also attempting to call `message:pin()` on a message sent in one of these channels will guarantee an error.
