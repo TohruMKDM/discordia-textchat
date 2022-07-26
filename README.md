@@ -6,7 +6,12 @@ Get this library from [lit](https://luvit.io/lit.html) with the following comman
 ```
 lit install TohruMKDM/discordia-textchat
 ```
-
+# Usage
+All you have to do to use this library is require it anywhere and it will load the patches.
+```lua
+local discordia = require('discordia')
+require('discordia-textchat')
+```
 # Information
 GuildVoiceChannels now inherit the TextChannel class. This means any property or method that is part of the TextChannel class is now part of GuildVoiceChannels.
 For example, you can now use methods like `:send()` on voice channel objects.
