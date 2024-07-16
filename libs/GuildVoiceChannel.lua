@@ -27,7 +27,7 @@ function GuildVoiceChannel:_load(data)
 end
 
 for name, method in pairs(TextChannel) do
-	if not blacklist[name] then
+	if (not blacklist[name]) and (string.sub(name, 1, 1) ~= "_") then
 		GuildVoiceChannel[name] = method
 	end
 end
